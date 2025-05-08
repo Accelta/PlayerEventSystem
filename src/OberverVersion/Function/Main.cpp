@@ -1,22 +1,20 @@
 #include "player.h"
 #include "enemy.h"
-#include "ui.h"
-#include "scoresystem.h"
 #include "soundsystem.h"
+#include "scoresystem.h"
+#include "ui.h"
+
 #include <iostream>
 
-int main(){
-    player player1;
-    enemy enemy1;
+int main() {
+    player p;
     soundsystem sound;
-    ui UI;
     scoresystem score;
+    ui interface;
 
-    player1.addObserver(&sound);
-    player1.addObserver(&UI);
-    player1.addObserver(&score);
-    player1.attack();
-    enemy1.takedamage();
+    p.addobserver(&sound);
+    p.addobserver(&score);
+
     char input;
     std::cout << "Press 'A' to attack. Press 'Q' to quit.\n";
 
@@ -25,13 +23,13 @@ int main(){
         std::cin >> input;
 
         if (input == 'A' || input == 'a') {
-            player1.attack();
-            enemy1.takedamage();
+            std::vector<std::string> messages = p.attack();
+            interface.display(messages);
         } else if (input == 'Q' || input == 'q') {
             std::cout << "Exiting game.\n";
             break;
         } else {
-            std::cout << "Invalid input. Try again.\n";
+            std::cout << "Invalid input.\n";
         }
     }
 

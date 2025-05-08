@@ -1,11 +1,12 @@
+// soundsystem.h
 #ifndef SOUNDSYSTEM_H
 #define SOUNDSYSTEM_H
+
 #include "Iobserver.h"
-class soundsystem :public Iobserver
-{
+#include <string>
+
+class soundsystem : public IObserver {
 public:
- void PlayerAttack() override;
+    std::string onplayerattack() override;
 };
-
-
-#endif // !SOUNDSYSTEM_H
+#endif

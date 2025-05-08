@@ -1,10 +1,13 @@
+// iobserver.h
 #ifndef IOBSERVER_H
 #define IOBSERVER_H
-class Iobserver
-{
+
+#include <string>
+
+class IObserver {
 public:
-virtual void PlayerAttack() =0;
-virtual ~Iobserver() = default;
+    virtual std::string onplayerattack() = 0;
+    virtual ~IObserver() {}
 };
 
-#endif // !1
+#endif

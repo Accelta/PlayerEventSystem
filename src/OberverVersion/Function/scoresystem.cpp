@@ -1,6 +1,6 @@
 #include "scoresystem.h"
-#include <iostream>
 
-void scoresystem::PlayerAttack(){
-    std::cout << "Score added! :" << std::endl;
+std::string scoresystem::onplayerattack() {
+    score += 10;
+    return "Score increased to " + std::to_string(score);
 }

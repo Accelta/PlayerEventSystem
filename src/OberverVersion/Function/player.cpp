@@ -1,15 +1,16 @@
 #include "player.h"
-#include <iostream>
 
-void player::addObserver(Iobserver* observer) {
+void player::addobserver(IObserver* observer) {
     observers.push_back(observer);
 }
 
-void player::attack(){
-    std::cout << "Player Attacks the enemy" << std::endl;
-    for (auto observer : observers)
-    {
-        observer->PlayerAttack();
+std::vector<std::string> player::attack() {
+    std::vector<std::string> messages;
+    messages.push_back("Player attacked!");
+
+    for (auto& observer : observers) {
+        messages.push_back(observer->onplayerattack());
     }
-    
+
+    return messages;
 }

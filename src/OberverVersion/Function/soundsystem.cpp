@@ -1,6 +1,5 @@
 #include "soundsystem.h"
-#include <iostream>
 
-void soundsystem::PlayerAttack(){
-    std::cout << "Swoosh" << std::endl;
+std::string soundsystem::onplayerattack() {
+    return "Sound: Pew!";
 }

@@ -1,11 +1,12 @@
 #ifndef UI_H
 #define UI_H
 
-#include "IObserver.h"
+#include <vector>
+#include <string>
 
-class ui : public Iobserver {
+class ui {
 public:
-    void PlayerAttack() override;
+    void display(const std::vector<std::string>& messages);
 };
 
 #endif
