@@ -3,15 +3,16 @@
 #include "mediator_score.h"
 #include "mediator_soundsystem.h"
 #include "mediator_ui.h"
-
+#include "mediator_enemy.h"
 #include <iostream>
 
 int main() {
     mediator_soundsystem sound;
     mediator_scoresystem score;
     mediator_ui interface;
+    mediator_enemy enemy;
 
-    mediator med(&sound, &score, &interface);
+    mediator med(&sound, &score, &interface, &enemy);
     mediator_player p(&med);
 
     std::cout << "Press 'A' to attack. Press 'Q' to quit.\n";
